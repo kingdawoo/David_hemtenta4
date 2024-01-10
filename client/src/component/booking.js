@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const Booking = () => {
     const [name, setName] = useState('');
@@ -10,15 +9,18 @@ const Booking = () => {
         console.log('Form submitted!');
 
         try {
-            await axios.post('http://localhost:3000/boka', {
-                name,
-                time
+            const response = await fetch('http://localhost:3000/boka', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, time }),
             });
 
             setName('');
             setTime('');
         } catch (error) {
-            console.error('Error submitting form:', error);
+            console.error('Error med form:', error);
         }
     };
 
@@ -37,6 +39,6 @@ const Booking = () => {
             <input type="submit" name="book" value="Boka" />
         </form>
     );
-}
+};
 
 export default Booking;

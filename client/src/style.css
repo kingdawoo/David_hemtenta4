@@ -9,6 +9,11 @@
     width: 15vw;
 }
 
+.qr {
+    display: flex;
+    justify-content: center;
+}
+
 .qr>img {
     width: 15vw;
 }
@@ -17,4 +22,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.status {
+    margin-left: 47vw;
+    font-size: larger;
 }
